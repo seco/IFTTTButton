@@ -5,12 +5,18 @@
 
 #include <ESPWebConfig.h> // https://github.com/mnomn/ESPWebConfig
 
-const char* KEY = "Maker key";
-const char* EVENT = "Event name";
+// Connect this pin to GND to reset web config
+int resetPin = 0; // Good for ESP01
+
+
+
+//////////////////////////////////////
+// No need to edit below /////////////
+
+const char* KEY = "Maker key"; // Do not edit. Configure in web UI
+const char* EVENT = "Event name"; // Do not edit. Configure in web UI
 
 ESP8266WebServer server(80);
-// int resetPin = 4; // Wemos D2, Arduino 4
-int resetPin = 0; // Good for ESP01
 String parameters[] = {KEY, EVENT};
 ESPWebConfig espConfig(resetPin, NULL, parameters, 2);
 unsigned long lastButtonTime = 0;
